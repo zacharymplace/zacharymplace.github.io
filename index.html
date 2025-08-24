@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Z$ — Code × Systems × Sound</title>
+  <meta name="description" content="I’m Z$ — coder, systems‑builder, and music nerd. Scripts, creative tools, and experiments mixing finance, life, and sound." />
+  <meta property="og:title" content="Z$ — Code × Systems × Sound" />
+  <meta property="og:description" content="Scripts, creative tools, and experiments mixing finance, life, and sound." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-card.jpg" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="/assets/favicon.svg" />
+  <style>
+    :root{
+      --bg:#0b0f1a;       /* slate-950 */
+      --panel:#0f172a;    /* slate-900 */
+      --ink:#e5e7eb;      /* slate-200 */
+      --muted:#9ca3af;    /* slate-400 */
+      --accent:#22d3ee;   /* cyan-400 */
+      --accent-2:#a78bfa; /* violet-400 */
+      --ring:rgba(34,211,238,.4);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.08), transparent),
+                  radial-gradient(800px 600px at 90% 10%, rgba(167,139,250,.06), transparent),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
+    header{
+      display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; margin-top:8px; margin-bottom:22px;
+    }
+    .logo{
+      width:68px; height:68px; display:grid; place-items:center; border-radius:50%;
+      background:linear-gradient(135deg,var(--panel),#0b1220); box-shadow: inset 0 -2px 10px rgba(255,255,255,.05), var(--shadow);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .logo svg{width:40px; height:40px}
+    h1{font-size: clamp(1.7rem, 2.2vw, 2.4rem); margin:0 0 4px; letter-spacing:.2px}
+    .sub{color:var(--muted); margin:0}
+    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .btn{--bg:transparent; display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:var(--bg); color:var(--ink); text-decoration:none; box-shadow:0 1px 0 rgba(255,255,255,.05) inset; transition:.2s transform, .2s box-shadow, .2s border-color}
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22)}
+    .btn.primary{--bg:linear-gradient(135deg, rgba(34,211,238,.15), rgba(167,139,250,.18)); border-color:transparent; box-shadow:0 0 0 2px var(--ring)}
+    .grid{display:grid; gap:16px}
+    @media (min-width:860px){.grid.cols-3{grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width:859px){.grid.cols-3{grid-template-columns: 1fr;} }
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:2px 0 6px; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted)}
+    .tag{display:inline-block; font-size:.76rem; padding:.14rem .5rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:#bfeaf6; background:rgba(34,211,238,.08); margin-right:6px}
+    section{margin:28px 0 8px}
+    section h2{font-size:1.2rem; margin:0 0 10px; color:#dbeafe}
+    footer{margin-top:40px; padding-top:18px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:.92rem}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; color:#94a3b8}
+    .list{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+    .pill{border:1px solid rgba(255,255,255,.12); padding:.34rem .6rem; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.03); font-size:.85rem}
+    a.more{display:inline-block; margin-top:10px; color:#a5b4fc; text-decoration:none}
+    a.more:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true" title="Z$">
+        <!-- Minimal Z$ glyph -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 16h44M10 48h44" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M18 45l28-26H18" stroke="url(#g2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M46 20v24M38 24v16" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div>
+        <div class="kicker">Personal • GitHub Pages</div>
+        <h1>Z$ — Code × Systems × Sound</h1>
+        <p class="sub">I’m Z$ — coder, systems‑builder, and music nerd. This space is for scripts, creative tools, and experiments mixing finance, life, and sound.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/your-username" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://synthtactician.example" target="_blank" rel="noopener">SynthTactician</a>
+          <a class="btn" href="mailto:hello@example.com">Email</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <span class="tag mono">Python</span>
+          <h3><a href="https://github.com/your-username/finance-ops-scripts" class="more">Finance‑Ops Scripts →</a></h3>
+          <p>Normalization, reconciliation, and forecasting helpers for personal + professional workflows.</p>
+        </article>
+        <article class="card">
+          <span class="tag mono">Automation</span>
+          <h3><a href="https://github.com/your-username/life-ops-scripts" class="more">Life‑Ops Scripts →</a></h3>
+          <p>Home automations, budgeting utilities, and quality‑of‑life CLI tools.</p>
+        </article>
+        <article class="card">
+          <span class="tag mono">Creative</span>
+          <h3><a href="https://github.com/your-username/creative-lab" class="more">Creative Lab →</a></h3>
+          <p>DJ helpers, playlist tooling, and small experiments around sound design.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Systems & Tools</h2>
+      <div class="list">
+        <span class="pill">Tiller Money</span>
+        <span class="pill">Workday Adaptive</span>
+        <span class="pill">Dynamics 365</span>
+        <span class="pill">Ramp</span>
+        <span class="pill">FloQast</span>
+        <span class="pill">Airtable</span>
+        <span class="pill">Scribe</span>
+        <span class="pill">Obsidian</span>
+      </div>
+      <a class="more" href="#">View more notes & templates →</a>
+    </section>
+
+    <section>
+      <h2>Music & Creative</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <span class="tag mono">DJ</span>
+          <h3>Crates: Booty Shakers Vol. 1</h3>
+          <p>Dance, bass‑heavy, funk & soul (115–130 BPM). High‑energy party set notes + tracklist tooling.</p>
+        </article>
+        <article class="card">
+          <span class="tag mono">Playlists</span>
+          <h3>Sad Pit Anthems</h3>
+          <p>Raw‑throated catharsis: singalongs through breakdowns. Notes, transitions, and BPM cues.</p>
+        </article>
+        <article class="card">
+          <span class="tag mono">Studio</span>
+          <h3>SynthTactician</h3>
+          <p>Patch notes, overlays, and utilities for streaming + live sets.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Z$ • Built with vanilla HTML/CSS • <span class="mono">github.io</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // tiny nicety: current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  
+  <!-- Optional: JSON‑LD for richer previews -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Z$",
+    "url": "https://your-username.github.io/",
+    "sameAs": [
+      "https://github.com/your-username",
+      "https://www.linkedin.com/in/your-handle"
+    ],
+    "knowsAbout": ["finance automation", "python", "airtable", "workday adaptive", "music production", "dj"],
+    "description": "Coder, systems‑builder, and music nerd mixing finance, life, and sound."
+  }
+  </script>
+</body>
+</html>
