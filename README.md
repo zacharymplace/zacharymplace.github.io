@@ -1,4 +1,4 @@
-# 🌐 Z$ — Code × Systems × Sound
+# 🌐 Z — Code × Systems × Sound
 
 This is the source for my personal GitHub Pages site:  
 👉 [zacharymplace.github.io](https://zacharymplace.github.io/)
@@ -12,4 +12,4 @@ This is the source for my personal GitHub Pages site:
 Bass guitar • vinyl crates • Magic: The Gathering • smart home tinkering • good food & better company
 
 ---
-© Z$ | Built with vanilla HTML/CSS on GitHub Pages
+© Z | Built with vanilla HTML/CSS on GitHub Pages
