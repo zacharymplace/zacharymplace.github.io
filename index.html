@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Z$ — Code × Systems × Sound</title>
-  <meta name="description" content="I’m Z$ — coder, systems‑builder, and music nerd. Scripts, creative tools, and experiments mixing finance, life, and sound." />
+  <meta name="description" content="I’m Z$ — coder, systems-builder, and music nerd. Scripts, creative tools, and experiments mixing finance, life, and sound." />
   <meta property="og:title" content="Z$ — Code × Systems × Sound" />
   <meta property="og:description" content="Scripts, creative tools, and experiments mixing finance, life, and sound." />
   <meta property="og:type" content="website" />
@@ -65,6 +65,28 @@
     .pill{border:1px solid rgba(255,255,255,.12); padding:.34rem .6rem; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.03); font-size:.85rem}
     a.more{display:inline-block; margin-top:10px; color:#a5b4fc; text-decoration:none}
     a.more:hover{text-decoration:underline}
+
+    /* Make an entire card clickable via a wrapping link */
+    .card-link{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+      border-radius:var(--radius);
+      /* matches card radius so focus ring hugs the card */
+    }
+    .card-link:focus-visible{
+      outline:none;
+      box-shadow:0 0 0 3px var(--ring);
+    }
+    .card-link .card{
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card-link .card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,.1), var(--shadow);
+      border-color: rgba(255,255,255,.16);
+    }
   </style>
 </head>
 <body>
@@ -89,11 +111,11 @@
       <div>
         <div class="kicker">Personal • GitHub Pages</div>
         <h1>Z$ — Code × Systems × Sound</h1>
-        <p class="sub">I’m Z$ — coder, systems‑builder, and music nerd. This space is for scripts, creative tools, and experiments mixing finance, life, and sound.</p>
+        <p class="sub">I’m Z$ — coder, systems-builder, and music nerd. This space is for scripts, creative tools, and experiments mixing finance, life, and sound.</p>
         <div class="cta">
-          <a class="btn primary" href="https://github.com/your-username" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://synthtactician.example" target="_blank" rel="noopener">SynthTactician</a>
+          <a class="btn primary" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">View GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://synthtactician.example" target="_blank" rel="noopener noreferrer">SynthTactician</a>
           <a class="btn" href="mailto:hello@example.com">Email</a>
         </div>
       </div>
@@ -104,13 +126,13 @@
       <div class="grid cols-3">
         <article class="card">
           <span class="tag mono">Python</span>
-          <h3><a href="https://github.com/your-username/finance-ops-scripts" class="more">Finance‑Ops Scripts →</a></h3>
+          <h3><a href="https://github.com/your-username/finance-ops-scripts" class="more">Finance-Ops Scripts →</a></h3>
           <p>Normalization, reconciliation, and forecasting helpers for personal + professional workflows.</p>
         </article>
         <article class="card">
           <span class="tag mono">Automation</span>
-          <h3><a href="https://github.com/your-username/life-ops-scripts" class="more">Life‑Ops Scripts →</a></h3>
-          <p>Home automations, budgeting utilities, and quality‑of‑life CLI tools.</p>
+          <h3><a href="https://github.com/your-username/life-ops-scripts" class="more">Life-Ops Scripts →</a></h3>
+          <p>Home automations, budgeting utilities, and quality-of-life CLI tools.</p>
         </article>
         <article class="card">
           <span class="tag mono">Creative</span>
@@ -138,20 +160,27 @@
     <section>
       <h2>Music & Creative</h2>
       <div class="grid cols-3">
-        <article class="card">
-          <span class="tag mono">DJ</span>
-          <h3>
-            <a href="https://tidal.com/playlist/c83d4f27-38be-4e61-b2c3-dbf868b89500" target="_blank">
-              Crates: Booty Shakers Vol. 1
-            </a>
-         </h3>
-         <p>Dance, bass-heavy, funk & soul (115–130 BPM). High-energy party set notes + tracklist tooling.</p>
-        </article>
+        <!-- Entire card is clickable -->
+        <a
+          href="https://tidal.com/playlist/c83d4f27-38be-4e61-b2c3-dbf868b89500"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-link"
+          aria-label="Open TIDAL playlist: Crates: Booty Shakers Vol. 1"
+        >
+          <article class="card">
+            <span class="tag mono">DJ</span>
+            <h3>Crates: Booty Shakers Vol. 1</h3>
+            <p>Dance, bass-heavy, funk & soul (115–130 BPM). High-energy party set notes + tracklist tooling.</p>
+          </article>
+        </a>
+
         <article class="card">
           <span class="tag mono">Playlists</span>
           <h3>Sad Pit Anthems</h3>
-          <p>Raw‑throated catharsis: singalongs through breakdowns. Notes, transitions, and BPM cues.</p>
+          <p>Raw-throated catharsis: singalongs through breakdowns. Notes, transitions, and BPM cues.</p>
         </article>
+
         <article class="card">
           <span class="tag mono">Studio</span>
           <h3>SynthTactician</h3>
@@ -170,7 +199,7 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
   
-  <!-- Optional: JSON‑LD for richer previews -->
+  <!-- Optional: JSON-LD for richer previews -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -182,7 +211,7 @@
       "https://www.linkedin.com/in/your-handle"
     ],
     "knowsAbout": ["finance automation", "python", "airtable", "workday adaptive", "music production", "dj"],
-    "description": "Coder, systems‑builder, and music nerd mixing finance, life, and sound."
+    "description": "Coder, systems-builder, and music nerd mixing finance, life, and sound."
   }
   </script>
 </body>
