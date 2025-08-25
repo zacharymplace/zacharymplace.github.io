@@ -3,50 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Z — Code × Systems × Sound</title>
   <meta name="description" content="I’m Z — coder, systems-builder, and music nerd. Scripts, creative tools, and experiments mixing finance, life, and sound." />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Z — Code × Systems × Sound" />
   <meta property="og:description" content="Scripts, creative tools, and experiments mixing finance, life, and sound." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zacharymplace.github.io/" />
   <meta property="og:image" content="/assets/og-card.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Z — Code × Systems × Sound" />
+  <meta name="twitter:description" content="Scripts, creative tools, and experiments mixing finance, life, and sound." />
+  <meta name="twitter:image" content="/assets/og-card.jpg" />
+
+  <!-- See-also: key sub-links -->
+  <meta property="og:see_also" content="https://github.com/zacharymplace/creative-lab" />
+  <meta property="og:see_also" content="https://tidal.com/playlist/c83d4f27-38be-4e61-b2c3-dbf868b89500" />
+  <meta property="og:see_also" content="https://tidal.com/playlist/c828279b-c20a-42b9-9b83-f50f07d4ac90" />
+
+  <!-- Theming + Icons -->
   <meta name="theme-color" content="#0f172a" />
   <link rel="icon" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
   <style>
     :root{
-      --bg:#0b0f1a;       /* slate-950 */
-      --panel:#0f172a;    /* slate-900 */
-      --ink:#e5e7eb;      /* slate-200 */
-      --muted:#9ca3af;    /* slate-400 */
-      --accent:#22d3ee;   /* cyan-400 */
-      --accent-2:#a78bfa; /* violet-400 */
-      --ring:rgba(34,211,238,.4);
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#0b0f1a; --panel:#0f172a; --ink:#e5e7eb; --muted:#9ca3af;
+      --accent:#22d3ee; --accent-2:#a78bfa; --ring:rgba(34,211,238,.4);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.08), transparent),
-                  radial-gradient(800px 600px at 90% 10%, rgba(167,139,250,.06), transparent),
-                  var(--bg);
-      color:var(--ink);
-      line-height:1.6;
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.08), transparent),
+        radial-gradient(800px 600px at 90% 10%, rgba(167,139,250,.06), transparent),
+        var(--bg);
+      color:var(--ink); line-height:1.6;
     }
     .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
-    header{
-      display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; margin-top:8px; margin-bottom:22px;
-    }
+    header{display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; margin-top:8px; margin-bottom:22px;}
     .logo{
       width:68px; height:68px; display:grid; place-items:center; border-radius:50%;
-      background:linear-gradient(135deg,var(--panel),#0b1220); box-shadow: inset 0 -2px 10px rgba(255,255,255,.05), var(--shadow);
+      background:linear-gradient(135deg,var(--panel),#0b1220);
+      box-shadow: inset 0 -2px 10px rgba(255,255,255,.05), var(--shadow);
       border:1px solid rgba(255,255,255,.06);
     }
     .logo svg{width:40px; height:40px}
     h1{font-size: clamp(1.7rem, 2.2vw, 2.4rem); margin:0 0 4px; letter-spacing:.2px}
     .sub{color:var(--muted); margin:0}
     .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .btn{--bg:transparent; display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:var(--bg); color:var(--ink); text-decoration:none; box-shadow:0 1px 0 rgba(255,255,255,.05) inset; transition:.2s transform, .2s box-shadow, .2s border-color}
+    .btn{
+      --bg:transparent; display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:var(--bg); color:var(--ink);
+      text-decoration:none; box-shadow:0 1px 0 rgba(255,255,255,.05) inset; transition:.2s transform, .2s box-shadow, .2s border-color;
+    }
     .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22)}
     .btn.primary{--bg:linear-gradient(135deg, rgba(34,211,238,.15), rgba(167,139,250,.18)); border-color:transparent; box-shadow:0 0 0 2px var(--ring)}
     .grid{display:grid; gap:16px}
@@ -59,66 +77,17 @@
     section{margin:28px 0 8px}
     section h2{font-size:1.2rem; margin:0 0 10px; color:#dbeafe}
     footer{margin-top:40px; padding-top:18px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:.92rem}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace}
     .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; color:#94a3b8}
     .list{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
-
-    /* Pills */
-    .pill{
-      border:1px solid rgba(255,255,255,.12);
-      padding:.34rem .6rem;
-      border-radius:999px;
-      color:#cbd5e1;
-      background:rgba(255,255,255,.03);
-      font-size:.85rem;
-      position:relative;
-      cursor:default;
-      transition:transform .12s ease, border-color .12s ease;
-      outline:none;
-    }
-    .pill:hover,
-    .pill:focus-visible{ transform:translateY(-1px); border-color:rgba(255,255,255,.22); }
-
+    .subhead{margin:14px 0 6px; font-size:.9rem; letter-spacing:.12em; text-transform:uppercase; color:#9fb5ff}
+    .pill{border:1px solid rgba(255,255,255,.12); padding:.34rem .6rem; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.03); font-size:.85rem; position:relative; cursor:default; transition:.12s}
+    .pill:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22)}
     a.more{display:inline-block; margin-top:10px; color:#a5b4fc; text-decoration:none}
     a.more:hover{text-decoration:underline}
-
-    /* Make an entire card clickable via a wrapping link */
     .card-link{ text-decoration:none; color:inherit; display:block; border-radius:var(--radius); }
-    .card-link:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--ring); }
-    .card-link .card{ cursor:pointer; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
-    .card-link .card:hover{ transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,.1), var(--shadow); border-color: rgba(255,255,255,.16); }
-
-    /* Fancy tooltips (data-tip) */
-    .pill[data-tip]::after{
-      content:attr(data-tip);
-      position:absolute;
-      left:50%; bottom:calc(100% + 8px);
-      transform:translateX(-50%) translateY(4px);
-      background:#0f172a; color:#fff;
-      padding:.45rem .6rem; border-radius:6px;
-      font-size:.78rem; line-height:1.2;
-      white-space:nowrap; box-shadow:0 6px 24px rgba(0,0,0,.35);
-      opacity:0; pointer-events:none; transition:opacity .12s ease, transform .12s ease;
-      z-index:10;
-    }
-    .pill[data-tip]::before{
-      content:""; position:absolute;
-      left:50%; bottom:100%;
-      transform:translateX(-50%) translateY(4px);
-      border:6px solid transparent; border-top-color:#0f172a;
-      opacity:0; transition:opacity .12s ease, transform .12s ease;
-      z-index:10;
-    }
-    .pill[data-tip]:hover::after,
-    .pill[data-tip]:hover::before,
-    .pill[data-tip]:focus-visible::after,
-    .pill[data-tip]:focus-visible::before{
-      opacity:1; transform:translateX(-50%) translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .pill, .pill[data-tip]::after, .pill[data-tip]::before { transition:none; }
-    }
+    .card-link .card{ cursor:pointer; transition:.15s; }
+    .card-link .card:hover{ transform: translateY(-3px); box-shadow:0 6px 12px rgba(0,0,0,.1), var(--shadow); border-color:rgba(255,255,255,.16); }
   </style>
 </head>
 <body>
@@ -131,10 +100,10 @@
           <path d="M18 45l28-26H18" stroke="url(#g2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M46 20v24M38 24v16" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
           <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64">
               <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
             </linearGradient>
-            <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64">
               <stop stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/>
             </linearGradient>
           </defs>
@@ -146,8 +115,7 @@
         <p class="sub">I’m Z — coder, systems-builder, and music nerd. This space is for scripts, creative tools, and experiments mixing finance, life, and sound.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/zacharymplace" target="_blank" rel="noopener noreferrer">View GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn" href="https://synthtactician.example" target="_blank" rel="noopener noreferrer">SynthTactician</a>
+          <a class="btn" href="https://www.linkedin.com/in/zacharymplace" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="btn" href="mailto:z@maskd.mozmail.com">Email</a>
         </div>
       </div>
@@ -159,103 +127,103 @@
         <article class="card">
           <span class="tag mono">Python</span>
           <h3><a href="https://github.com/zacharymplace/finance-ops-scripts" class="more">Finance-Ops Scripts →</a></h3>
-          <p>Normalization, reconciliation, and forecasting helpers for personal + professional workflows.</p>
+          <p>Normalization & forecasting for treasury + close.</p>
         </article>
         <article class="card">
           <span class="tag mono">Automation</span>
           <h3><a href="https://github.com/zacharymplace/life-ops-scripts" class="more">Life-Ops Scripts →</a></h3>
-          <p>Home automations, budgeting utilities, and quality-of-life CLI tools.</p>
+          <p>Automations for budgeting, home, and daily ops.</p>
         </article>
         <article class="card">
           <span class="tag mono">Creative</span>
           <h3><a href="https://github.com/zacharymplace/creative-lab" class="more">Creative Lab →</a></h3>
-          <p>DJ helpers, playlist tooling, and small experiments around sound design.</p>
+          <p>DJ tools, playlists, and sound experiments.</p>
         </article>
       </div>
     </section>
 
     <section>
       <h2>Systems & Tools</h2>
+
+      <h3 class="subhead">Professional Stack</h3>
       <div class="list">
-        <!-- Finance & Ops -->
-        <span class="pill" data-tip="Personal finance automation via spreadsheets" tabindex="0">Tiller Money</span>
-        <span class="pill" data-tip="Budgeting & forecasting platform" tabindex="0">Workday Adaptive</span>
-        <span class="pill" data-tip="ERP & accounting system" tabindex="0">Dynamics 365</span>
-        <span class="pill" data-tip="Corporate card & expense management" tabindex="0">Ramp</span>
-        <span class="pill" data-tip="Month-end close management & reconciliation" tabindex="0">FloQast</span>
+        <span class="pill" data-tip="Personal finance automation via spreadsheets">Tiller Money</span>
+        <span class="pill" data-tip="Budgeting & forecasting platform">Workday Adaptive</span>
+        <span class="pill" data-tip="ERP & accounting system">Dynamics 365</span>
+        <span class="pill" data-tip="Corporate card & expense management">Ramp</span>
+        <span class="pill" data-tip="Month-end close & reconciliations">FloQast</span>
 
-        <!-- Reporting & Analysis -->
-        <span class="pill" data-tip="Spreadsheets for analysis & modeling" tabindex="0">Excel</span>
-        <span class="pill" data-tip="Data visualization & dashboards" tabindex="0">Power BI</span>
-        <span class="pill" data-tip="Transform/clean data in Excel & Power BI" tabindex="0">Power Query</span>
+        <span class="pill" data-tip="Analysis & modeling">Excel</span>
+        <span class="pill" data-tip="Visualization & dashboards">Power BI</span>
+        <span class="pill" data-tip="Data cleanup & transforms">Power Query</span>
 
-        <!-- Automation & Data -->
-        <span class="pill" data-tip="Workflow automation across apps" tabindex="0">Power Automate</span>
-        <span class="pill" data-tip="Scripting & automation" tabindex="0">Python</span>
-        <span class="pill" data-tip="Interactive analysis notebooks" tabindex="0">Jupyter</span>
-        <span class="pill" data-tip="Manage SQL Server databases" tabindex="0">SQL Server (SSMS)</span>
+        <span class="pill" data-tip="Cross-app workflow automation">Power Automate</span>
+        <span class="pill" data-tip="Scripting & automation">Python</span>
+        <span class="pill" data-tip="Interactive analysis notebooks">Jupyter</span>
+        <span class="pill" data-tip="SQL database management">SQL Server (SSMS)</span>
 
-        <!-- Knowledge & Docs -->
-        <span class="pill" data-tip="Team knowledge base & templates" tabindex="0">Notion</span>
-        <span class="pill" data-tip="Personal knowledge management (PKM)" tabindex="0">Obsidian</span>
-        <span class="pill" data-tip="No/low-code database & workflows" tabindex="0">Airtable</span>
-        <span class="pill" data-tip="Step-by-step process docs" tabindex="0">Scribe</span>
-        <span class="pill" data-tip="Async video walkthroughs" tabindex="0">Loom</span>
+        <span class="pill" data-tip="Knowledge hub & templates">Notion</span>
+        <span class="pill" data-tip="Personal PKM system">Obsidian</span>
+        <span class="pill" data-tip="Low-code workflows">Airtable</span>
+        <span class="pill" data-tip="Step-by-step docs">Scribe</span>
+        <span class="pill" data-tip="Async video walkthroughs">Loom</span>
 
-        <!-- Collaboration -->
-        <span class="pill" data-tip="Team chat & integrations" tabindex="0">Slack</span>
-        <span class="pill" data-tip="Messaging & meetings" tabindex="0">Microsoft Teams</span>
-        <span class="pill" data-tip="File sharing & intranet" tabindex="0">SharePoint / OneDrive</span>
+        <span class="pill" data-tip="Team chat">Slack</span>
+        <span class="pill" data-tip="Messaging & meetings">Microsoft Teams</span>
+        <span class="pill" data-tip="File sharing">SharePoint / OneDrive</span>
 
-        <!-- Dev & Versioning -->
-        <span class="pill" data-tip="Code hosting & version control" tabindex="0">GitHub</span>
-        <span class="pill" data-tip="CI/CD workflows" tabindex="0">GitHub Actions</span>
-        <span class="pill" data-tip="Code editor / IDE" tabindex="0">VS Code</span>
+        <span class="pill" data-tip="Code hosting">GitHub</span>
+        <span class="pill" data-tip="CI/CD workflows">GitHub Actions</span>
+        <span class="pill" data-tip="Editor / IDE">VS Code</span>
 
-        <!-- Security -->
-        <span class="pill" data-tip="Identity & access management" tabindex="0">Azure AD</span>
-        <span class="pill" data-tip="Password & secrets management" tabindex="0">1Password</span>
+        <span class="pill" data-tip="Identity & access management">Azure AD</span>
+        <span class="pill" data-tip="Secrets management">1Password</span>
       </div>
-      <!-- <a class="more" href="#">View more notes & templates →</a> -->
+
+      <h3 class="subhead">Music Tools & Workflow</h3>
+      <div class="list">
+        <span class="pill" data-tip="Streaming playlists, crates, and set prep">TIDAL</span>
+        <span class="pill" data-tip="Airtable base for crates, track logs, and prep">DJ Assistant (Airtable)</span>
+        <span class="pill" data-tip="Streaming overlays, scenes, automation">OBS Studio</span>
+
+        <span class="pill" data-tip="Wavetable synth for custom patches">Vital</span>
+        <span class="pill" data-tip="MIDI controller for live input">Akai MPK Mini Mk3</span>
+        <span class="pill" data-tip="Dynamic mic for vocals & talkback">Shure SV7</span>
+
+        <span class="pill" data-tip="Tempo/key tagging & transition helpers">BPM + Key Tools</span>
+        <span class="pill" data-tip="Scene switching, chat triggers, sound cues">Stream Automations</span>
+        <span class="pill" data-tip="Patch, set, and overlay notes">SynthTactician Notes</span>
+      </div>
     </section>
 
     <section>
       <h2>Music & Creative</h2>
       <div class="grid cols-3">
-        <a
-          href="https://tidal.com/playlist/c83d4f27-38be-4e61-b2c3-dbf868b89500"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card-link"
-          aria-label="Open TIDAL playlist: Crates: Booty Shakers Vol. 1"
-        >
+        <a href="/share/booty-shakers.html" class="card-link" aria-label="Share page for Booty Shakers Vol. 1">
           <article class="card">
             <span class="tag mono">DJ</span>
             <h3>Crates: Booty Shakers Vol. 1</h3>
-            <p>Dance, bass-heavy, funk & soul (115–130 BPM). High-energy party set notes + tracklist tooling.</p>
+            <p>High-energy funk & soul (115–130 BPM). Party-ready set notes + tooling.</p>
           </article>
         </a>
 
-        <a
-          href="https://tidal.com/playlist/c828279b-c20a-42b9-9b83-f50f07d4ac90"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card-link"
-          aria-label="Open TIDAL playlist: Sad Pit Anthems"
-        >
+        <a href="/share/sad-pit-anthems.html" class="card-link" aria-label="Share page for Sad Pit Anthems">
           <article class="card">
             <span class="tag mono">Playlists</span>
             <h3>Sad Pit Anthems</h3>
-            <p>Raw-throated catharsis: singalongs through breakdowns. Notes, transitions, and BPM cues.</p>
+            <p>Raw emotion, singalongs through breakdowns. BPM + transition notes.</p>
           </article>
         </a>
 
-        <article class="card">
-          <span class="tag mono">Studio</span>
-          <h3>SynthTactician</h3>
-          <p>Patch notes, overlays, and utilities for streaming + live sets.</p>
-        </article>
+        <a href="/share/creative-lab.html" class="card-link" aria-label="Share page for Creative Lab">
+          <article class="card">
+            <span class="tag mono">Studio</span>
+            <h3>SynthTactician</h3>
+            <p>Patches, overlays, and utilities for live sets & streaming.</p>
+          </article>
+        </a>
       </div>
+      <a class="more" href="https://github.com/zacharymplace/creative-lab" target="_blank" rel="noopener noreferrer">Explore more in Creative Lab →</a>
     </section>
 
     <footer>
@@ -263,21 +231,18 @@
     </footer>
   </div>
 
-  <script>
-    // tiny nicety: current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
-  <!-- Optional: JSON-LD for richer previews -->
+  <!-- JSON-LD: primary profile -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Z",
-    "url": "https://your-username.github.io/",
+    "url": "https://zacharymplace.github.io/",
     "sameAs": [
-      "https://github.com/your-username",
-      "https://www.linkedin.com/in/your-handle"
+      "https://github.com/zacharymplace",
+      "https://www.linkedin.com/in/zacharymplace"
     ],
     "knowsAbout": ["finance automation", "python", "airtable", "workday adaptive", "music production", "dj"],
     "description": "Coder, systems-builder, and music nerd mixing finance, life, and sound."
