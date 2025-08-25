@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Share Pages — Z</title>
+  <meta name="description" content="Direct share links for music crates, playlists, and creative projects by Z." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Share Pages — Z" />
+  <meta property="og:description" content="Direct share links for music crates, playlists, and creative projects by Z." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zacharymplace.github.io/share/" />
+  <meta property="og:image" content="/assets/og-card.jpg" />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:#0b0f1a; color:#e5e7eb; line-height:1.6;
+      display:flex; flex-direction:column; align-items:center; padding:40px 20px;
+    }
+    h1{font-size:1.6rem; margin-bottom:20px; color:#dbeafe}
+    ul{list-style:none; padding:0; margin:0; max-width:600px; width:100%}
+    li{margin:12px 0; padding:14px 18px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:12px;}
+    a{color:#a5b4fc; text-decoration:none; font-weight:500;}
+    a:hover{text-decoration:underline}
+    footer{margin-top:40px; font-size:.85rem; color:#9ca3af}
+  </style>
+</head>
+<body>
+  <h1>Share Pages</h1>
+  <ul>
+    <li><a href="/share/booty-shakers.html">Crates: Booty Shakers Vol. 1</a></li>
+    <li><a href="/share/sad-pit-anthems.html">Sad Pit Anthems</a></li>
+    <li><a href="/share/creative-lab.html">Creative Lab</a></li>
+  </ul>
+  <footer>© <span id="y"></span> Z — Direct share links</footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
