@@ -34,14 +34,10 @@
       line-height:1.6;
     }
     .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
-    header{
-      display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; margin-top:8px; margin-bottom:22px;
-    }
-    .logo{
-      width:68px; height:68px; display:grid; place-items:center; border-radius:50%;
+    header{display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; margin-top:8px; margin-bottom:22px;}
+    .logo{width:68px; height:68px; display:grid; place-items:center; border-radius:50%;
       background:linear-gradient(135deg,var(--panel),#0b1220); box-shadow: inset 0 -2px 10px rgba(255,255,255,.05), var(--shadow);
-      border:1px solid rgba(255,255,255,.06);
-    }
+      border:1px solid rgba(255,255,255,.06);}
     .logo svg{width:40px; height:40px}
     h1{font-size: clamp(1.7rem, 2.2vw, 2.4rem); margin:0 0 4px; letter-spacing:.2px}
     .sub{color:var(--muted); margin:0}
@@ -62,128 +58,91 @@
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; color:#94a3b8}
     .list{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
-    .pill{border:1px solid rgba(255,255,255,.12); padding:.34rem .6rem; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.03); font-size:.85rem}
+    .pill{border:1px solid rgba(255,255,255,.12); padding:.34rem .6rem; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.03); font-size:.85rem; position:relative; cursor:default}
     a.more{display:inline-block; margin-top:10px; color:#a5b4fc; text-decoration:none}
     a.more:hover{text-decoration:underline}
 
-    /* Make an entire card clickable via a wrapping link */
-    .card-link{
-      text-decoration:none;
-      color:inherit;
-      display:block;
-      border-radius:var(--radius);
+    /* Fancy tooltip */
+    .pill[data-tip]::after{
+      content:attr(data-tip);
+      position:absolute;
+      left:50%; bottom:calc(100% + 8px);
+      transform:translateX(-50%) translateY(4px);
+      background:#0f172a; color:#fff;
+      padding:.45rem .6rem; border-radius:6px;
+      font-size:.78rem; line-height:1.2;
+      white-space:nowrap; box-shadow:0 6px 24px rgba(0,0,0,.35);
+      opacity:0; pointer-events:none; transition:opacity .12s ease, transform .12s ease;
+      z-index:10;
     }
-    .card-link:focus-visible{
-      outline:none;
-      box-shadow:0 0 0 3px var(--ring);
+    .pill[data-tip]::before{
+      content:""; position:absolute;
+      left:50%; bottom:100%;
+      transform:translateX(-50%) translateY(4px);
+      border:6px solid transparent; border-top-color:#0f172a;
+      opacity:0; transition:opacity .12s ease, transform .12s ease;
+      z-index:10;
     }
-    .card-link .card{
-      cursor:pointer;
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    .pill[data-tip]:hover::after,
+    .pill[data-tip]:hover::before,
+    .pill[data-tip]:focus-visible::after,
+    .pill[data-tip]:focus-visible::before{
+      opacity:1; transform:translateX(-50%) translateY(0);
     }
-    .card-link .card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,.1), var(--shadow);
-      border-color: rgba(255,255,255,.16);
-    }
+
+    /* Clickable card */
+    .card-link{text-decoration:none; color:inherit; display:block; border-radius:var(--radius);}
+    .card-link:focus-visible{outline:none; box-shadow:0 0 0 3px var(--ring);}
+    .card-link .card{cursor:pointer; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;}
+    .card-link .card:hover{transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,.1), var(--shadow); border-color: rgba(255,255,255,.16);}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="logo" aria-hidden="true" title="Z">
-        <!-- Minimal Z glyph -->
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M10 16h44M10 48h44" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M18 45l28-26H18" stroke="url(#g2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M46 20v24M38 24v16" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
-            </linearGradient>
-            <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div>
-        <div class="kicker">Personal • GitHub Pages</div>
-        <h1>Z — Code × Systems × Sound</h1>
-        <p class="sub">I’m Z — coder, systems-builder, and music nerd. This space is for scripts, creative tools, and experiments mixing finance, life, and sound.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://github.com/zacharymplace" target="_blank" rel="noopener noreferrer">View GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn" href="https://synthtactician.example" target="_blank" rel="noopener noreferrer">SynthTactician</a>
-          <a class="btn" href="mailto:z@maskd.mozmail.com">Email</a>
-        </div>
-      </div>
-    </header>
-
-    <section>
-      <h2>Featured Projects</h2>
-      <div class="grid cols-3">
-        <article class="card">
-          <span class="tag mono">Python</span>
-          <h3><a href="https://github.com/zacharymplace/finance-ops-scripts" class="more">Finance-Ops Scripts →</a></h3>
-          <p>Normalization, reconciliation, and forecasting helpers for personal + professional workflows.</p>
-        </article>
-        <article class="card">
-          <span class="tag mono">Automation</span>
-          <h3><a href="https://github.com/zacharymplace/life-ops-scripts" class="more">Life-Ops Scripts →</a></h3>
-          <p>Home automations, budgeting utilities, and quality-of-life CLI tools.</p>
-        </article>
-        <article class="card">
-          <span class="tag mono">Creative</span>
-          <h3><a href="https://github.com/zacharymplace/creative-lab" class="more">Creative Lab →</a></h3>
-          <p>DJ helpers, playlist tooling, and small experiments around sound design.</p>
-        </article>
-      </div>
-    </section>
+    <!-- header unchanged ... -->
 
     <section>
       <h2>Systems & Tools</h2>
       <div class="list">
         <!-- Finance & Ops -->
-        <span class="pill" title="Personal finance automation via spreadsheets">Tiller Money</span>
-        <span class="pill" title="Budgeting & forecasting platform">Workday Adaptive</span>
-        <span class="pill" title="ERP & accounting system">Dynamics 365</span>
-        <span class="pill" title="Corporate card & expense management">Ramp</span>
-        <span class="pill" title="Month-end close management & reconciliation">FloQast</span>
-           
+        <span class="pill" data-tip="Personal finance automation via spreadsheets">Tiller Money</span>
+        <span class="pill" data-tip="Budgeting & forecasting platform">Workday Adaptive</span>
+        <span class="pill" data-tip="ERP & accounting system">Dynamics 365</span>
+        <span class="pill" data-tip="Corporate card & expense management">Ramp</span>
+        <span class="pill" data-tip="Month-end close management & reconciliation">FloQast</span>
+
         <!-- Reporting & Analysis -->
-        <span class="pill" title="Spreadsheets for analysis & modeling">Excel</span>
-        <span class="pill" title="Data visualization & dashboards">Power BI</span>
-        <span class="pill" title="ETL & data transformation within Excel/Power BI">Power Query</span>
+        <span class="pill" data-tip="Spreadsheets for analysis & modeling">Excel</span>
+        <span class="pill" data-tip="Data visualization & dashboards">Power BI</span>
+        <span class="pill" data-tip="ETL & data transformation within Excel/Power BI">Power Query</span>
 
         <!-- Automation & Data -->
-        <span class="pill" title="Workflow automation across apps">Power Automate</span>
-        <span class="pill" title="Scripting & automation">Python</span>
-        <span class="pill" title="Interactive data analysis notebooks">Jupyter</span>
-        <span class="pill" title="SQL database management">SQL Server (SSMS)</span>
+        <span class="pill" data-tip="Workflow automation across apps">Power Automate</span>
+        <span class="pill" data-tip="Scripting & automation">Python</span>
+        <span class="pill" data-tip="Interactive data analysis notebooks">Jupyter</span>
+        <span class="pill" data-tip="SQL database management">SQL Server (SSMS)</span>
 
         <!-- Knowledge & Docs -->
-        <span class="pill" title="Team knowledge base & templates">Notion</span>
-        <span class="pill" title="Personal knowledge management (PKM) tool">Obsidian</span>
-        <span class="pill" title="Low-code database & workflow management">Airtable</span>
-        <span class="pill" title="Step-by-step process documentation">Scribe</span>
-        <span class="pill" title="Async video walkthroughs">Loom</span>
+        <span class="pill" data-tip="Team knowledge base & templates">Notion</span>
+        <span class="pill" data-tip="Personal knowledge management (PKM) tool">Obsidian</span>
+        <span class="pill" data-tip="Low-code database & workflow management">Airtable</span>
+        <span class="pill" data-tip="Step-by-step process documentation">Scribe</span>
+        <span class="pill" data-tip="Async video walkthroughs">Loom</span>
 
         <!-- Collaboration -->
-        <span class="pill" title="Team communication">Slack</span>
-        <span class="pill" title="Messaging & video meetings">Microsoft Teams</span>
-        <span class="pill" title="File sharing & intranet">SharePoint / OneDrive</span>
-        
+        <span class="pill" data-tip="Team communication">Slack</span>
+        <span class="pill" data-tip="Messaging & video meetings">Microsoft Teams</span>
+        <span class="pill" data-tip="File sharing & intranet">SharePoint / OneDrive</span>
+
         <!-- Dev & Versioning -->
-        <span class="pill" title="Code hosting & version control">GitHub</span>
-        <span class="pill" title="CI/CD workflows">GitHub Actions</span>
-        <span class="pill" title="Code editor & IDE">VS Code</span>
+        <span class="pill" data-tip="Code hosting & version control">GitHub</span>
+        <span class="pill" data-tip="CI/CD workflows">GitHub Actions</span>
+        <span class="pill" data-tip="Code editor & IDE">VS Code</span>
 
         <!-- Security -->
-        <span class="pill" title="Identity & access management">Azure AD</span>
-        <span class="pill" title="Password & secrets management">1Password</span>
+        <span class="pill" data-tip="Identity & access management">Azure AD</span>
+        <span class="pill" data-tip="Password & secrets management">1Password</span>
       </div>
-<!--      <a class="more" href="#">View more notes & templates →</a> -->
     </section>
 
     <section>
