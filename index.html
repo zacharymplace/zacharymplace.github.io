@@ -5,6 +5,8 @@
   
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://github.com" crossorigin>
+  <link rel="preconnect" href="https://www.linkedin.com" crossorigin>
 
   <title>Z — Code × Systems × Sound</title>
   <meta name="description" content="I’m Z — coder, systems-builder, and music nerd. Scripts, creative tools, and experiments mixing finance, life, and sound." />
@@ -53,6 +55,7 @@
         radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.08), transparent),
         radial-gradient(800px 600px at 90% 10%, rgba(167,139,250,.06), transparent),
         var(--bg);
+      background-attachment: fixed;
       color:var(--ink); line-height:1.6;
     }
     .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 64px}
@@ -95,6 +98,12 @@
     .card-link{ text-decoration:none; color:inherit; display:block; border-radius:var(--radius); }
     .card-link .card{ cursor:pointer; transition:.15s; }
     .card-link .card:hover{ transform: translateY(-3px); box-shadow:0 6px 12px rgba(0,0,0,.1), var(--shadow); border-color:rgba(255,255,255,.16); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .btn:hover,
+      .card-link .card:hover { transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -133,18 +142,18 @@
       <div class="grid cols-3">
         <article class="card">
           <span class="tag mono">Python</span>
-          <h3><a href="https://github.com/zacharymplace/finance-ops-scripts" class="more">Finance-Ops Scripts →</a></h3>
-          <p>Normalization & forecasting for treasury + close.</p>
+          <h3><a href="https://github.com/zacharymplace/finance-ops-scripts" class="more">Explore Finance-Ops →</a></h3>
+          <p>Normalization & forecasting for treasury + close. CLI tools + templates.</p>
         </article>
         <article class="card">
           <span class="tag mono">Automation</span>
-          <h3><a href="https://github.com/zacharymplace/life-ops-scripts" class="more">Life-Ops Scripts →</a></h3>
-          <p>Automations for budgeting, home, and daily ops.</p>
+          <h3><a href="https://github.com/zacharymplace/life-ops-scripts" class="more">Explore Life-Ops →</a></h3>
+          <p>Automations for budgeting, home ops, and daily routines. Batteries included.</p>
         </article>
         <article class="card">
           <span class="tag mono">Creative</span>
-          <h3><a href="https://github.com/zacharymplace/creative-lab" class="more">Creative Lab →</a></h3>
-          <p>DJ tools, playlists, and sound experiments.</p>
+          <h3><a href="https://github.com/zacharymplace/creative-lab" class="more">Explore Creative Lab →</a></h3>
+          <p>DJ crates, playlist tooling, and live-set helpers. Built for speed.</p>
         </article>
       </div>
     </section>
@@ -250,6 +259,44 @@
     ],
     "knowsAbout": ["finance automation", "python", "airtable", "workday adaptive", "music production", "dj"],
     "description": "Coder, systems-builder, and music nerd mixing finance, life, and sound."
+  }
+  </script>
+
+  <!-- JSON-LD: Featured Projects -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Featured Projects",
+    "itemListElement": [
+      {
+        "@type": "CreativeWork",
+        "position": 1,
+        "name": "Finance-Ops Scripts",
+        "url": "https://github.com/zacharymplace/finance-ops-scripts",
+        "description": "Normalization & forecasting for treasury and close. CLI tools + templates.",
+        "creator": { "@type": "Person", "name": "Z" },
+        "keywords": ["python","treasury","forecast","close","ramp","floqast","d365"]
+      },
+      {
+        "@type": "CreativeWork",
+        "position": 2,
+        "name": "Life-Ops Scripts",
+        "url": "https://github.com/zacharymplace/life-ops-scripts",
+        "description": "Automations for budgeting, home ops, and daily routines.",
+        "creator": { "@type": "Person", "name": "Z" },
+        "keywords": ["automation","budgeting","home","scripts","powershell","python"]
+      },
+      {
+        "@type": "CreativeWork",
+        "position": 3,
+        "name": "Creative Lab",
+        "url": "https://github.com/zacharymplace/creative-lab",
+        "description": "DJ crates, playlist tooling, live-set helpers.",
+        "creator": { "@type": "Person", "name": "Z" },
+        "keywords": ["dj","playlists","audio","streaming","vital","obs"]
+      }
+    ]
   }
   </script>
 </body>
